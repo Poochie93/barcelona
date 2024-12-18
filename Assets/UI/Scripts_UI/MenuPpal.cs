@@ -40,7 +40,7 @@ public class MenuPpal : MonoBehaviour
     {
         Application.Quit(); //Se cierra la aplicación
                             //Se cierra la ejecución si se está en el entorno de desarrollo Unity 3D
-      //  UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 
     void jugarClicked()

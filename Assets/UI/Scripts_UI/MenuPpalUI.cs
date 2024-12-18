@@ -27,17 +27,17 @@ public class MenuPpalUI : MonoBehaviour
         //Calls the jugarClicked method when you click the Button menu
         boton[(int)BotonesMenuPpalUI.MPPalUI_MenuPrincipal].onClick.AddListener(menuClicked);
         //boton[(int)BotonesMenuPpal.MPPal_Cargar].onClick.AddListener(cargarEnter);
-        boton[(int)BotonesMenuPpalUI.MPPalUI_Creditos].onClick.AddListener(delegate { genericClicked("Pressed button Opciones"); });
-        boton[(int)BotonesMenuPpalUI.MPPalUI_Salir].onClick.AddListener(salirClicked);
+        boton[(int)BotonesMenuPpalUI.MPPalUI_Creditos].onClick.AddListener(CreditosClicked);
+        boton[(int)BotonesMenuPpalUI.MPPalUI_Salir].onClick.AddListener(VolverJuegoClicked);
 
     }
 
-        void salirClicked()
+        void VolverJuegoClicked()
         {
             Application.Quit(); //Se cierra la aplicación
-            
-           // UnityEditor.EditorApplication.isPlaying = false;
-        }
+
+        SceneManager.LoadScene("Scene");
+    }
 
         void menuClicked()
         {
@@ -45,19 +45,18 @@ public class MenuPpalUI : MonoBehaviour
             Debug.Log("You have clicked the button Jugar!");
             SceneManager.LoadScene("interfaz");
         }
-        void genericClicked(string message)
+        void CreditosClicked()
         {
-            //Output this to console when the Button is clicked
-            Debug.Log(message);
-        }
+    SceneManager.LoadScene("Creditos");
+}
 
         void Update()
         {
             //Regla del escape
             if (Input.GetKey("escape"))
-                salirClicked();
-            //Regla del enter
-            if (Input.GetKey(KeyCode.Return))
+            SceneManager.LoadScene("Scene");
+        //Regla del enter
+        if (Input.GetKey(KeyCode.Return))
                 menuClicked();
         }
 
