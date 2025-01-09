@@ -9,6 +9,7 @@ public class PlayerAttack : MonoBehaviour
     public int attackDamageDown = 20; // Daño del ataque hacia abajo
     public int attackDamageRight = 25; // Daño del ataque hacia la derecha
     private List<EnemyLife> enemiesInRange = new List<EnemyLife>();
+    private int comboMultiplier = 1;
 
     // Referencia al sistema de puntuación
     private ScoreComboSystem scoreSystem;
@@ -76,6 +77,9 @@ public class PlayerAttack : MonoBehaviour
                 {
                     scoreSystem.AddScore(damage); // Puntos igual al daño infligido
                 }
+
+
+                
 
                 Debug.Log($"Ataque {attackDirection} realizado. Daño infligido: {damage}");
             }

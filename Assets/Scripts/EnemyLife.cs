@@ -21,7 +21,7 @@ public class EnemyLife : MonoBehaviour
     {
         // Reducimos la vida actual
         currentHealth -= damage;
-
+        ScoreScript.scoreValueHit += 13;
         // Comprobamos si la vida ha llegado a cero o menos
         if (currentHealth <= 0)
         {
