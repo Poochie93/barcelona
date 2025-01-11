@@ -6,7 +6,7 @@ public class PlayerLife : MonoBehaviour
 {
     // Vida máxima y actual del jugador
     public int maxHealth = 100;
-    public int currentHealth;
+    public int currentHealth = 100;
 
     // Bandera para saber si el jugador está vivo
     private bool isAlive = true;

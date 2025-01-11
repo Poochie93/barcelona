@@ -23,4 +23,14 @@ public class videoInicio : MonoBehaviour
     {
         SceneManager.LoadScene("Scene");
     }
+
+    void Update()
+    {
+        // Comprobar si se ha pulsado la tecla Espacio
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Cargar la siguiente escena
+            SceneManager.LoadScene("Scene");
+        }
+    }
 }
