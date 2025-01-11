@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerLife : MonoBehaviour
 {
@@ -28,6 +30,7 @@ public class PlayerLife : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+            SceneManager.LoadScene("Hasmuerto");
         }
     }
 

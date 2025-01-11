@@ -39,7 +39,6 @@ public class MenuPpal : MonoBehaviour
     void salirClicked()
     {
         Application.Quit(); //Se cierra la aplicación
-                            //Se cierra la ejecución si se está en el entorno de desarrollo Unity 3D
         UnityEditor.EditorApplication.isPlaying = false;
     }
 
@@ -52,7 +51,7 @@ public class MenuPpal : MonoBehaviour
     void opcionesClicked()
     {
         //Output this to console when the Button is clicked
-        Debug.Log("You have clicked the button Jugar!");
+        Debug.Log("You have clicked the button Opciones!");
         SceneManager.LoadScene("Ajustes");
     }
 
