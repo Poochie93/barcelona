@@ -47,7 +47,7 @@ public class MenuPpal : MonoBehaviour
     {
         //Output this to console when the Button is clicked
         Debug.Log("You have clicked the button Jugar!");
-        SceneManager.LoadScene("Scene");
+        SceneManager.LoadScene("videoInicio");
     }
     void opcionesClicked()
     {
