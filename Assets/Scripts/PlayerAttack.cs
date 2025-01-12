@@ -19,6 +19,12 @@ public class PlayerAttack : MonoBehaviour
     private float comboResetTime = 2.0f; // Tiempo para resetear el combo
     private float lastAttackTime;
 
+    // Referencia al script de animaciones
+    public Animator animator;  // Asegúrate de que esto esté visible en el Inspector
+    private bool isInCombat = false;
+    public float attackAnimationDuration = 1.0f;
+    // public PlayerFightingAnimation playerFightingAnimation;
+
     void Start()
     {
         // Buscar el sistema de puntuación en la escena
@@ -27,6 +33,9 @@ public class PlayerAttack : MonoBehaviour
         {
             Debug.LogError("No se encontró el sistema de puntuación en la escena.");
         }
+        // Obtener referencia al script de animaciones
+        animator = GetComponent<Animator>();
+       // playerFightingAnimation = GetComponent<PlayerFightingAnimation>();
     }
 
     void Update()
@@ -36,24 +45,29 @@ public class PlayerAttack : MonoBehaviour
         {
             PerformAttack("Left", attackDamage);
             //Debug.Log("izquierda");
+            animator.SetBool("isFighting", true);
+            StartCoroutine(BackToIdle());
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             PerformAttack("Up", attackDamageUp);
             //Debug.Log("arriba");
-
+            animator.SetBool("isFighting", true);
+            StartCoroutine(BackToIdle());
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             PerformAttack("Down", attackDamageDown);
             //Debug.Log("abajo");
-
+            animator.SetBool("isFighting", true);
+            StartCoroutine(BackToIdle());
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             PerformAttack("Right", attackDamageRight);
             //Debug.Log("derecha");
-
+            animator.SetBool("isFighting", true);
+            StartCoroutine(BackToIdle());
         }
 
         // Resetear combo si pasa el tiempo límite
@@ -62,6 +76,16 @@ public class PlayerAttack : MonoBehaviour
             attackSequence.Clear();
             //Debug.Log("Combo reseteado");
         }
+
+    }
+
+    private IEnumerator BackToIdle()
+    {
+        // Esperar la duración de la animación de ataque
+        yield return new WaitForSeconds(attackAnimationDuration);
+
+        // Volver al estado Idle, cambiando el parámetro 'isFighting' a false o cualquier otro que tengas
+        animator.SetBool("isFighting", false);
     }
 
     private void PerformAttack(string attackDirection, int damage)
@@ -77,9 +101,6 @@ public class PlayerAttack : MonoBehaviour
                 {
                     scoreSystem.AddScore(damage); // Puntos igual al daño infligido
                 }
-
-
-                
 
                 Debug.Log($"Ataque {attackDirection} realizado. Daño infligido: {damage}");
             }
@@ -140,6 +161,7 @@ public class PlayerAttack : MonoBehaviour
             //Debug.Log("Enemigo fuera de rango: " + other.name);
         }
     }
+
 }
 
 
