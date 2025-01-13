@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ajustes.unity
     guid: 67e1c2a6ac0213946b48b59057e437d2
+  - enabled: 1
+    path: Assets/Scenes/Hasmuerto.unity
+    guid: 5b32131a398548a4c9b1c8a5f5edf355
   m_configObjects: {}
