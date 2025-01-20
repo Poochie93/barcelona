@@ -53,6 +53,8 @@ public class PlayerLife : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+
+
             SceneManager.LoadScene("Hasmuerto");
         }
     }
