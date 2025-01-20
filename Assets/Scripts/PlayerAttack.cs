@@ -21,9 +21,7 @@ public class PlayerAttack : MonoBehaviour
 
     // Referencia al script de animaciones
     public Animator animator;  // Asegúrate de que esto esté visible en el Inspector
-    private bool isInCombat = false;
     public float attackAnimationDuration = 1.0f;
-    // public PlayerFightingAnimation playerFightingAnimation;
 
     void Start()
     {
@@ -35,7 +33,6 @@ public class PlayerAttack : MonoBehaviour
         }
         // Obtener referencia al script de animaciones
         animator = GetComponent<Animator>();
-       // playerFightingAnimation = GetComponent<PlayerFightingAnimation>();
     }
 
     void Update()
@@ -45,14 +42,14 @@ public class PlayerAttack : MonoBehaviour
         {
             PerformAttack("Left", attackDamage);
             //Debug.Log("izquierda");
-            animator.SetBool("isFighting", true);
+            animator.SetBool("leftPunch", true);
             StartCoroutine(BackToIdle());
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             PerformAttack("Up", attackDamageUp);
             //Debug.Log("arriba");
-            animator.SetBool("isFighting", true);
+            animator.SetBool("headButt", true);
             StartCoroutine(BackToIdle());
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -66,7 +63,7 @@ public class PlayerAttack : MonoBehaviour
         {
             PerformAttack("Right", attackDamageRight);
             //Debug.Log("derecha");
-            animator.SetBool("isFighting", true);
+            animator.SetBool("rightPunch", true);
             StartCoroutine(BackToIdle());
         }
 
@@ -85,7 +82,9 @@ public class PlayerAttack : MonoBehaviour
         yield return new WaitForSeconds(attackAnimationDuration);
 
         // Volver al estado Idle, cambiando el parámetro 'isFighting' a false o cualquier otro que tengas
-        animator.SetBool("isFighting", false);
+        animator.SetBool("leftPunch", false);
+        animator.SetBool("rightPunch", false);
+        animator.SetBool("headButt", false);
     }
 
     private void PerformAttack(string attackDirection, int damage)
