@@ -56,7 +56,7 @@ public class PlayerAttack : MonoBehaviour
         {
             PerformAttack("Down", attackDamageDown);
             //Debug.Log("abajo");
-            animator.SetBool("isFighting", true);
+            animator.SetBool("kick", true);
             StartCoroutine(BackToIdle());
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -85,6 +85,7 @@ public class PlayerAttack : MonoBehaviour
         animator.SetBool("leftPunch", false);
         animator.SetBool("rightPunch", false);
         animator.SetBool("headButt", false);
+        animator.SetBool("kick", false);
     }
 
     private void PerformAttack(string attackDirection, int damage)
