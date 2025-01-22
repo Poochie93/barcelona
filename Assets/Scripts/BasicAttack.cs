@@ -39,7 +39,7 @@ public class BasicAttack : StateMachineBehaviour
             Debug.Log("AI atakuje gracza!");
 
             // Po zakoñczeniu ataku mo¿esz wróciæ do innego stanu lub pozostawiæ w stanie ataku
-            animator.SetBool("isAttacking", false);
+         //   animator.SetBool("isAttacking", false);
         }
     }
 
