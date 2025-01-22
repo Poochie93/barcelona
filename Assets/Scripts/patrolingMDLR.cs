@@ -15,8 +15,8 @@ public class PatrolingMDLR : StateMachineBehaviour
     {
 
         timer = 0;
-        Transform PointsObject = GameObject.FindGameObjectWithTag("Points").transform;
-        foreach (Transform t in PointsObject)
+        Transform wayPointsObject = GameObject.FindGameObjectWithTag("Points").transform;
+        foreach (Transform t in wayPointsObject)
             wayPoints.Add(t);
 
         agent = animator.GetComponent<NavMeshAgent>();
