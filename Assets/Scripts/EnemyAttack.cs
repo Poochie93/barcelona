@@ -13,6 +13,9 @@ public class EnemyAttack : MonoBehaviour
     // Rango de ataque del enemigo
     public float attackRange = 2f;
 
+    // Przesuniêcie pola ataku
+    public Vector3 attackOffset = Vector3.zero;
+
     // Tiempo entre ataques
     public float attackCooldown = 1.5f;
     private float lastAttackTime;
@@ -20,8 +23,11 @@ public class EnemyAttack : MonoBehaviour
     // Update se llama una vez por frame
     void Update()
     {
+        // Oblicz pozycjê pola ataku z przesuniêciem
+        Vector3 attackPosition = transform.position + attackOffset;
+
         // Verificar si el jugador sigue vivo y está en rango
-        if (player != null && player.IsAlive() && Vector3.Distance(transform.position, player.transform.position) <= attackRange)
+        if (player != null && player.IsAlive() && Vector3.Distance(attackPosition, player.transform.position) <= attackRange)
         {
             // Verificar si ha pasado suficiente tiempo desde el último ataque
             if (Time.time >= lastAttackTime + attackCooldown)
@@ -46,6 +52,6 @@ public class EnemyAttack : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position + attackOffset, attackRange);
     }
 }
