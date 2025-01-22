@@ -11,6 +11,9 @@ public class EnemyLife : MonoBehaviour
     public Animator animator;  //esté visible en el Inspector
     private bool isDead = false;  // Bool para verificar si el enemigo ya está muerto
 
+    private AudioSource audioSource;
+
+    public AudioClip damageSound;
 
     // Método que se ejecuta al iniciar el juego
     void Start()
@@ -19,6 +22,8 @@ public class EnemyLife : MonoBehaviour
         currentHealth = maxHealth;
 
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+
     }
 
 
@@ -30,6 +35,12 @@ public class EnemyLife : MonoBehaviour
         ScoreScript.scoreValueHit += 13;
 
         if (isDead) return;  // Si el enemigo ya está muerto, no recibe más daño
+
+        //sonido daño
+        if (damageSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(damageSound);
+        }
 
         // Comprobamos si la vida ha llegado a cero o menos
         if (currentHealth <= 0)
