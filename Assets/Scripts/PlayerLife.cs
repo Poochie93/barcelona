@@ -13,11 +13,18 @@ public class PlayerLife : MonoBehaviour
 
     private Animator animator;
 
+    private AudioSource audioSource;
+
+    public AudioClip damageSound;
+
     void Start()
     {
         // Inicializar la vida al máximo
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
+
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     // Método para recibir daño
@@ -26,6 +33,13 @@ public class PlayerLife : MonoBehaviour
         if (!isAlive) return;
 
         currentHealth -= damage;
+
+        //sonido daño
+        if (damageSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(damageSound);
+        }
+
 
         if (currentHealth > 0)
         {
