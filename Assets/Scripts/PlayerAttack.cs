@@ -81,7 +81,7 @@ public class PlayerAttack : MonoBehaviour
         // Esperar la duración de la animación de ataque
         yield return new WaitForSeconds(attackAnimationDuration);
 
-        // Volver al estado Idle, cambiando el parámetro 'isFighting' a false o cualquier otro que tengas
+        // Volver al estado Idle
         animator.SetBool("leftPunch", false);
         animator.SetBool("rightPunch", false);
         animator.SetBool("headButt", false);

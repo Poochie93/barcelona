@@ -65,7 +65,7 @@ public class PlayerLife : MonoBehaviour
         isAlive = false;
 
         //animación de muerte
-        animator.SetTrigger("Die");
+        animator.SetBool("death", true);
 
 
         Debug.Log("El jugador ha muerto.");

@@ -8,11 +8,17 @@ public class EnemyLife : MonoBehaviour
     public int maxHealth = 100;
     private int currentHealth;
 
+    public Animator animator;  //esté visible en el Inspector
+    private bool isDead = false;  // Bool para verificar si el enemigo ya está muerto
+
+
     // Método que se ejecuta al iniciar el juego
     void Start()
     {
         // Inicializamos la vida del enemigo con su valor máximo
         currentHealth = maxHealth;
+
+        animator = GetComponent<Animator>();
     }
 
 
@@ -22,6 +28,10 @@ public class EnemyLife : MonoBehaviour
         // Reducimos la vida actual
         currentHealth -= damage;
         ScoreScript.scoreValueHit += 13;
+        if (isDead) return;  // Si el enemigo ya está muerto, no recibe más daño
+
+        currentHealth -= damage;
+
         // Comprobamos si la vida ha llegado a cero o menos
         if (currentHealth <= 0)
         {
@@ -32,10 +42,20 @@ public class EnemyLife : MonoBehaviour
     // Método que se ejecuta cuando la vida del enemigo llega a cero
     private void Die()
     {
-        // Aquí puedes agregar efectos, sonidos, etc.
-        Debug.Log("El enemigo ha sido derrotado");
+        if (isDead) return;  // Evita que la animación de muerte se inicie más de una vez
 
-        // Destruir el objeto del enemigo
+        isDead = true;  
+
+        animator.SetTrigger("Die");
+
+        // Usamos una Coroutine para esperar el tiempo de la animación de muerte
+        StartCoroutine(WaitForDeathAnimation());
+    }
+
+    private IEnumerator WaitForDeathAnimation()
+    {
+        yield return new WaitForSeconds(3.5f);  
+
         Destroy(gameObject);
     }
 }
