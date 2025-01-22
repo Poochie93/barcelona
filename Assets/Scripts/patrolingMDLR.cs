@@ -23,6 +23,7 @@ public class PatrolingMDLR : StateMachineBehaviour
         agent.SetDestination(wayPoints[0].position);
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

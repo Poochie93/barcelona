@@ -9,8 +9,8 @@ public class WanderingAI : MonoBehaviour
     public float followRange = 10.0f;        // Rango para comenzar a seguir al jugador
     public float stopDistance = 2.0f;        // Distancia mínima al jugador
 
-    [SerializeField] private GameObject fireballPrefab;
-    private GameObject _fireball;
+   // [SerializeField] private GameObject fireballPrefab;
+   // private GameObject _fireball;
 
     private bool _alive;
     private Transform playerTransform;
@@ -50,16 +50,6 @@ public class WanderingAI : MonoBehaviour
                 // Detener movimiento cuando está dentro de la distancia mínima
                 StopMovement();
             }
-            else
-            {
-                // Movimiento errante
-                Wander();
-            }
-        }
-        else
-        {
-            // Si no hay jugador, continuar moviéndose erráticamente
-            Wander();
         }
     }
 
@@ -80,32 +70,32 @@ public class WanderingAI : MonoBehaviour
         Debug.Log("Jugador dentro de la zona segura, deteniendo movimiento.");
     }
 
-    private void Wander()
-    {
-        // Movimiento errante
-        transform.Translate(0, 0, speed * Time.deltaTime);
-        Ray ray = new Ray(transform.position, transform.forward);
-        RaycastHit hit;
+    //private void Wander()
+    //{
+    //    // Movimiento errante
+    //    transform.Translate(0, 0, speed * Time.deltaTime);
+    //    Ray ray = new Ray(transform.position, transform.forward);
+    //    RaycastHit hit;
 
-        if (Physics.SphereCast(ray, 0.75f, out hit))
-        {
-            GameObject hitObject = hit.transform.gameObject;
+    //    if (Physics.SphereCast(ray, 0.75f, out hit))
+    //    {
+    //        GameObject hitObject = hit.transform.gameObject;
 
-            if (hitObject.GetComponent<PlayerCharacter>())
-            {
-                if (_fireball == null)
-                {
-                    _fireball = Instantiate<GameObject>(fireballPrefab);
-                    _fireball.transform.position = transform.TransformPoint(Vector3.forward * 1.5f);
-                    _fireball.transform.rotation = transform.rotation;
-                }
-            }
-            else if (hit.distance < obstacleRange)
-            {
-                float angle = Random.Range(-110, 110);
-                transform.Rotate(0, angle, 0);
-            }
-        }
-    }
+    //        if (hitObject.GetComponent<PlayerCharacter>())
+    //        {
+    //            if (_fireball == null)
+    //            {
+    //                _fireball = Instantiate<GameObject>(fireballPrefab);
+    //                _fireball.transform.position = transform.TransformPoint(Vector3.forward * 1.5f);
+    //                _fireball.transform.rotation = transform.rotation;
+    //            }
+    //        }
+    //        else if (hit.distance < obstacleRange)
+    //        {
+    //            float angle = Random.Range(-110, 110);
+    //            transform.Rotate(0, angle, 0);
+    //        }
+    //    }
+    //}
 }
 
