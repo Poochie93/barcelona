@@ -143,6 +143,7 @@ MonoBehaviour:
   player: {fileID: 2097676049}
   attackDamage: 10
   attackRange: 2
+  attackOffset: {x: 0, y: 0, z: 0}
   attackCooldown: 1.5
 --- !u!54 &16365521
 Rigidbody:
@@ -207,6 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  animator: {fileID: 0}
 --- !u!95 &16365525
 Animator:
   serializedVersion: 5
@@ -374,6 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  animator: {fileID: 0}
 --- !u!114 &60457824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,6 +390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  animator: {fileID: 0}
 --- !u!114 &60457825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +406,7 @@ MonoBehaviour:
   player: {fileID: 0}
   attackDamage: 10
   attackRange: 2
+  attackOffset: {x: 0, y: 0, z: 0}
   attackCooldown: 1.5
 --- !u!114 &60457826
 MonoBehaviour:
@@ -416,6 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  animator: {fileID: 0}
 --- !u!114 &60457827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,6 +437,7 @@ MonoBehaviour:
   player: {fileID: 2097676049}
   attackDamage: 10
   attackRange: 2
+  attackOffset: {x: 0, y: 0, z: 0}
   attackCooldown: 1.5
 --- !u!1 &66609325
 GameObject:
@@ -922,6 +929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  animator: {fileID: 0}
 --- !u!114 &163785676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -937,6 +945,7 @@ MonoBehaviour:
   player: {fileID: 0}
   attackDamage: 10
   attackRange: 2
+  attackOffset: {x: 0, y: 0, z: 0}
   attackCooldown: 1.5
 --- !u!136 &163785677
 CapsuleCollider:
@@ -8882,10 +8891,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9661b9721fc08e49bf34bac6dc7bf80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 10
+  attackDamageLeft: 10
   attackDamageUp: 15
-  attackDamageDown: 20
-  attackDamageRight: 25
+  attackDamageDown: 12
+  attackDamageRight: 10
   animator: {fileID: 2097676054}
   attackAnimationDuration: 1
 --- !u!135 &2097676047
@@ -9044,6 +9053,7 @@ MonoBehaviour:
   player: {fileID: 2097676049}
   attackDamage: 10
   attackRange: 1.9
+  attackOffset: {x: 0, y: 0, z: 0}
   attackCooldown: 1.5
 --- !u!114 &2117665392
 MonoBehaviour:
@@ -9058,6 +9068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  animator: {fileID: 0}
 --- !u!136 &2117665393
 CapsuleCollider:
   m_ObjectHideFlags: 0

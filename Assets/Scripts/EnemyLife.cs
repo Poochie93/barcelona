@@ -28,9 +28,8 @@ public class EnemyLife : MonoBehaviour
         // Reducimos la vida actual
         currentHealth -= damage;
         ScoreScript.scoreValueHit += 13;
-        if (isDead) return;  // Si el enemigo ya está muerto, no recibe más daño
 
-        currentHealth -= damage;
+        if (isDead) return;  // Si el enemigo ya está muerto, no recibe más daño
 
         // Comprobamos si la vida ha llegado a cero o menos
         if (currentHealth <= 0)

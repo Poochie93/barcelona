@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public int attackDamage = 10;
+    public int attackDamageLeft = 10;
     public int attackDamageUp = 15; // Daño del ataque hacia arriba
     public int attackDamageDown = 20; // Daño del ataque hacia abajo
     public int attackDamageRight = 25; // Daño del ataque hacia la derecha
     private List<EnemyLife> enemiesInRange = new List<EnemyLife>();
-    private int comboMultiplier = 1;
+    //private int comboMultiplier = 1;
 
     // Referencia al sistema de puntuación
     private ScoreComboSystem scoreSystem;
@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
     private float lastAttackTime;
 
     // Referencia al script de animaciones
-    public Animator animator;  // Asegúrate de que esto esté visible en el Inspector
+    public Animator animator;  //esté visible en el Inspector
     public float attackAnimationDuration = 1.0f;
 
     void Start()
@@ -40,7 +40,7 @@ public class PlayerAttack : MonoBehaviour
         // Detectar ataques y realizar acciones
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            PerformAttack("Left", attackDamage);
+            PerformAttack("Left", attackDamageLeft);
             //Debug.Log("izquierda");
             animator.SetBool("leftPunch", true);
             StartCoroutine(BackToIdle());
