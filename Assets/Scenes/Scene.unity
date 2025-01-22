@@ -1577,7 +1577,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b782357626d69044c9675b1f45bfcd8e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.115
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b782357626d69044c9675b1f45bfcd8e,
         type: 3}
@@ -3553,6 +3553,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manoJugador: {fileID: 1550366340}
+  velocidadMovimiento: 2
+  alturaMaxima: 0.8
 --- !u!65 &871435931
 BoxCollider:
   m_ObjectHideFlags: 0

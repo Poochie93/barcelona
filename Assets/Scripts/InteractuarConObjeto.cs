@@ -9,6 +9,11 @@ public class InteractuarConObjeto : MonoBehaviour
     // Referencia al objeto que el jugador puede agarrar
     private GameObject objetoRecogido;
 
+    // Variables para el movimiento del objeto (arriba/abajo)
+    public float velocidadMovimiento = 2f; // Velocidad del movimiento de vaivén
+    public float alturaMaxima = 0.1f; // Altura máxima del movimiento
+    private float alturaInicial;
+
     // Este método detecta el colisionador
     private void OnTriggerEnter(Collider other)
     {
@@ -19,9 +24,23 @@ public class InteractuarConObjeto : MonoBehaviour
         }
     }
 
+    // Start se ejecuta una vez al inicio
+    void Start()
+    {
+        // Guardamos la posición inicial del objeto para usarla como referencia
+        alturaInicial = transform.position.y;
+    }
+
     // Update se ejecuta cada frame
     void Update()
     {
+        // Movimiento del objeto hacia arriba y hacia abajo
+        if (objetoRecogido == null)
+        {
+            float movimiento = Mathf.Sin(Time.time * velocidadMovimiento) * alturaMaxima;
+            transform.position = new Vector3(transform.position.x, alturaInicial + movimiento, transform.position.z);
+        }
+
         // Si el jugador presiona la tecla E
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -38,7 +57,6 @@ public class InteractuarConObjeto : MonoBehaviour
                     }
                 }
             }
-           
         }
     }
 
