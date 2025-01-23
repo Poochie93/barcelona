@@ -9,6 +9,7 @@ TagManager:
   - ObjetoRecogible
   - Points
   - Puerta
+  - Puerta2
   layers:
   - Default
   - TransparentFX

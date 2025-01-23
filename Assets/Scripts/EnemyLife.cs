@@ -68,5 +68,11 @@ public class EnemyLife : MonoBehaviour
 
         Destroy(gameObject);
     }
+
+    // Método para verificar si el enemigo está muerto
+    public bool IsDead()
+    {
+        return isDead;
+    }
 }
 

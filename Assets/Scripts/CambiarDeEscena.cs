@@ -3,25 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;  // Necesario para cambiar de escena
 
-public class CambiarDeEscena2 : MonoBehaviour
+public class CambiarDeEscena : MonoBehaviour
 {
     // Método que se llama cuando se produce una colisión con otro objeto que tiene un Collider marcado como Trigger
     private void OnTriggerEnter(Collider other)
     {
-        // Debug.Log("Colisión detectada con: " + other.gameObject.name); // Esto te dirá con qué objeto estás colisionando
+        Debug.Log("Colisión detectada con: " + other.gameObject.name); // Esto te dirá con qué objeto estás colisionando
 
         // Verifica si el objeto con el que hemos colisionado tiene la etiqueta "Puerta"
         if (other.CompareTag("Puerta"))
         {
             // Llama al método para cambiar de escena
-            CambiarDeEscena();
+            CambiarDeEscena3();
+        }
+        if (other.CompareTag("Puerta2"))
+        {
+            // Llama al método para cambiar de escena
+            CambiarDeEscena2();
         }
     }
 
     // Método para cambiar de escena
-    private void CambiarDeEscena()
+    private void CambiarDeEscena3()
     {
         // Aquí puedes especificar el nombre de la nueva escena
         SceneManager.LoadScene("Nivel3");  // Cambia "NombreDeLaEscena" por el nombre de la escena que deseas cargar
+    }
+    private void CambiarDeEscena2()
+    {
+        // Aquí puedes especificar el nombre de la nueva escena
+        SceneManager.LoadScene("Nivel2");  // Cambia "NombreDeLaEscena" por el nombre de la escena que deseas cargar
     }
 }

@@ -85,7 +85,7 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(waitTime);  // Espera el tiempo especificado
 
         // Carga la nueva escena
-        SceneManager.LoadScene("Ajustes");
+        SceneManager.LoadScene("Final");
     }
 
 
