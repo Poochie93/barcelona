@@ -8,6 +8,7 @@ TagManager:
   - WayPoints
   - ObjetoRecogible
   - Points
+  - Puerta
   layers:
   - Default
   - TransparentFX
