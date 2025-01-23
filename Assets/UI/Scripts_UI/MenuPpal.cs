@@ -39,7 +39,7 @@ public class MenuPpal : MonoBehaviour
     void salirClicked()
     {
         Application.Quit(); //Se cierra la aplicación
-        UnityEditor.EditorApplication.isPlaying = false;
+       
     }
 
     void jugarClicked()

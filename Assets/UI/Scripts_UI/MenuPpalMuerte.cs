@@ -40,7 +40,7 @@ public class MenuPpalMuerte : MonoBehaviour
     {
 
         Application.Quit(); //Se cierra la aplicación
-        UnityEditor.EditorApplication.isPlaying = false;
+        
     }
 
 }

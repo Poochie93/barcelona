@@ -8,7 +8,7 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance;
-    private float timer = 0f;
+    
 
     public TextMeshProUGUI dialogueArea;
     public TextMeshProUGUI characterName;

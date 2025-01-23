@@ -14,7 +14,6 @@ public class PatrolingMDLR : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
-        timer = 0;
         Transform wayPointsObject = GameObject.FindGameObjectWithTag("Points").transform;
         foreach (Transform t in wayPointsObject)
             wayPoints.Add(t);
