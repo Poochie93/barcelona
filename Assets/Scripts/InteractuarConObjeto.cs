@@ -8,7 +8,9 @@ public class InteractuarConObjeto : MonoBehaviour
     public Transform manoJugador;
     // Referencia al objeto que el jugador puede agarrar
     private GameObject objetoRecogido;
+    private AudioSource audioSource;
 
+    public AudioClip damageSound;
     // Variables para el movimiento del objeto (arriba/abajo)
     public float velocidadMovimiento = 2f; // Velocidad del movimiento de vaivén
     public float alturaMaxima = 0.1f; // Altura máxima del movimiento
@@ -27,6 +29,8 @@ public class InteractuarConObjeto : MonoBehaviour
     // Start se ejecuta una vez al inicio
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         // Guardamos la posición inicial del objeto para usarla como referencia
         alturaInicial = transform.position.y;
     }
@@ -46,6 +50,10 @@ public class InteractuarConObjeto : MonoBehaviour
         {
             if (objetoRecogido == null)
             {
+                if (damageSound != null && audioSource != null)
+                {
+                    audioSource.PlayOneShot(damageSound);
+                }
                 // Comprobar si hay algún objeto que el jugador pueda recoger
                 Collider[] hitColliders = Physics.OverlapSphere(transform.position, 2f); // Detecta objetos cercanos en un radio de 2 unidades
                 foreach (var hitCollider in hitColliders)

@@ -202,7 +202,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8758e4e9d474f0148bc1f5abc8b992fc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b6be2117063159e43ba08085e584cd5e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9661b9721fc08e49bf34bac6dc7bf80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 10
+  attackDamageLeft: 10
   attackDamageUp: 15
   attackDamageDown: 20
   attackDamageRight: 25
@@ -1378,6 +1378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  damageSound: {fileID: 0}
 --- !u!135 &813940415
 SphereCollider:
   m_ObjectHideFlags: 0
