@@ -41,9 +41,12 @@ public class PlayerLife : MonoBehaviour
         }
 
 
+        // Reproducir animación de "beenHit" si el jugador aún tiene salud
         if (currentHealth > 0)
         {
-            animator.SetTrigger("beenHit");
+            // Asegúrate de resetear el trigger antes de activarlo
+            animator.ResetTrigger("beenHit"); // Resetea el trigger
+            animator.SetTrigger("beenHit");    // Luego activa el trigger de nuevo
         }
         if (currentHealth <= 0)
         {
