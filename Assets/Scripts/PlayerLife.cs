@@ -16,6 +16,8 @@ public class PlayerLife : MonoBehaviour
     private AudioSource audioSource;
 
     public AudioClip damageSound;
+    public AudioClip deathSound;
+
 
     void Start()
     {
@@ -63,6 +65,8 @@ public class PlayerLife : MonoBehaviour
     private void Die()
     {
         isAlive = false;
+
+        audioSource.PlayOneShot(deathSound);
 
         animator.SetTrigger("Die");
 
